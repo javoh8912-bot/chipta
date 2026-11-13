@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ro'yxatdan o'tish | Temiryo'l</title><link rel="stylesheet" href="style.css"></head>
+<body class="ticket-app">
+  <main class="auth-wrap">
+    <a class="brand auth-brand" href="index.html"><span class="brand-mark" aria-hidden="true">T</span><span>Temiryo'l<small>SAFARINGIZ BIZ BILAN</small></span></a>
+    <section class="auth-card">
+      <div class="auth-tabs"><a href="sigIN.html">Kirish</a><a class="active" href="sigUP.html">Ro'yxatdan o'tish</a></div>
+      <span class="eyebrow">YANGI HISOB</span><h1>Safaringizni boshlang</h1><p class="auth-hint">Hisob yarating va o'zingizga mos o'rindiqni tanlang.</p>
+      <form id="signUpForm">
+        <label>Foydalanuvchi nomi<input id="newUsername" type="text" autocomplete="username" minlength="3" required></label>
+        <label>Email<input id="newEmail" type="email" autocomplete="email" required></label>
+        <label>Telefon raqami<input id="newPhone" type="tel" autocomplete="tel" required></label>
+        <label>Jinsi<select id="newGender" required><option value="" disabled selected>Jinsingizni tanlang</option><option value="erkak">Erkak</option><option value="ayol">Ayol</option></select></label>
+        <label>Parol<input id="newPassword" type="password" autocomplete="new-password" minlength="6" required></label>
+        <p id="authError" class="auth-error hidden" role="alert"></p>
+        <button class="button button-primary auth-submit" type="submit">Hisob yaratish</button>
+      </form>
+    </section>
+  </main>
+  <script src="db.js"></script><script src="signup.js"></script>
+  <a class="theme-toggle" href="../kun/sigUP.html" aria-label="Kunduzgi rejimga o'tish" title="Kunduzgi rejimga o'tish">☀</a>
+</body>
+</html>

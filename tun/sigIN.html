@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Kirish | Temiryo'l</title><link rel="stylesheet" href="style.css"></head>
+<body class="ticket-app">
+  <main class="auth-wrap">
+    <a class="brand auth-brand" href="index.html"><span class="brand-mark" aria-hidden="true">T</span><span>Temiryo'l<small>SAFARINGIZ BIZ BILAN</small></span></a>
+    <section class="auth-card">
+      <div class="auth-tabs"><a class="active" href="sigIN.html">Kirish</a><a href="sigUP.html">Ro'yxatdan o'tish</a></div>
+      <span class="eyebrow">XUSH KELIBSIZ</span><h1>Hisobingizga kiring</h1><p class="auth-hint">O'rindiq tanlash va chipta xarid qilish uchun tizimga kiring.</p>
+      <form id="signInForm">
+        <label>Foydalanuvchi nomi<input id="username" type="text" autocomplete="username" required></label>
+        <label>Parol<input id="password" type="password" autocomplete="current-password" required></label>
+        <p id="authError" class="auth-error hidden" role="alert">Login yoki parol xato.</p>
+        <button class="button button-primary auth-submit" type="submit">Kirish</button>
+      </form>
+    </section>
+  </main>
+  <script src="db.js"></script><script src="SigIn.js"></script>
+  <a class="theme-toggle" href="../kun/sigIN.html" aria-label="Kunduzgi rejimga o'tish" title="Kunduzgi rejimga o'tish">☀</a>
+</body>
+</html>

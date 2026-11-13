@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Poyezd, avtobus va samolyot chiptalarini bir joydan qidiring va xarid qiling.">
+  <title>Temiryo'l — Sayohat chiptalari</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="ticket-app" data-mode="help" data-base="" data-page-file="yordam.html" data-theme="tun">
+  <header class="ticket-header">
+    <nav class="ticket-nav container" aria-label="Asosiy menyu">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">T</span><span>Temiryo'l<small>SAFARINGIZ BIZ BILAN</small></span></a>
+      <button class="menu-toggle" type="button" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="primaryNav"><span></span><span></span><span></span></button>
+      <div class="nav-links" id="primaryNav" aria-label="Transport va xizmatlar">
+        <a class="nav-current" href="reyslar.html" data-mode="all">Barcha qatnovlar</a>
+        <a href="poyezd.html" data-mode="train">Poyezd</a>
+        <a href="avtobus.html" data-mode="bus">Avtobus</a>
+        <a href="aviachipta.html" data-mode="flight">Aviachipta</a>
+        <a href="yordam.html" data-page="help">Yordam</a>
+      </div>
+      <div class="account" id="account"><a class="button button-outline" href="sigIN.html">Kirish</a><a class="button button-primary" href="sigUP.html">Ro'yxatdan o'tish</a></div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-copy"><span class="eyebrow">POYEZD · AVTOBUS · AVIACHIPTA</span><h1>Keyingi manzilingiz<br><em>bir chipta narida.</em></h1><p>O'zingizga mos transportni tanlang, reyslarni solishtiring va safaringiz uchun chiptani qulay xarid qiling.</p><a class="button button-primary" href="#routes">Chiptalarni ko'rish <span aria-hidden="true">→</span></a></div>
+      <div class="hero-art"><img class="hero-train-image" src="https://cdn.uza.uz/2026/10/06/15/38/FHyzDXfuA9iiOFZxYKADXEdSS1DXQgCI_front.jpg" alt="O'zbekiston temiryo'lida ketayotgan poyezd"></div>
+    </section>
+
+    <section class="search-panel container" aria-labelledby="searchTitle">
+      <h2 id="searchTitle">Safaringizni rejalashtiring</h2>
+      <form id="ticketSearch" class="search-grid">
+        <label>Qayerdan<input id="fromCity" type="text" list="cities" placeholder="Shaharni tanlang"></label>
+        <label>Qayerga<input id="toCity" type="text" list="cities" placeholder="Manzilni tanlang"></label>
+        <datalist id="cities"><option value="Toshkent"><option value="Samarqand"><option value="Buxoro"><option value="Qarshi"><option value="Nukus"><option value="Andijon"></datalist>
+        <label>Safar sanasi<input id="travelDate" type="date" min="2026-11-09"></label>
+        <button class="button button-primary search-button" type="submit">Reys qidirish <span aria-hidden="true">→</span></button>
+      </form>
+    </section>
+
+    <section class="routes-section container" id="routes">
+      <div class="section-heading"><div><span class="eyebrow">SIZ UCHUN TANLANDI</span><h2 id="routesTitle">Barcha qatnovlar</h2></div><span class="section-note">Poyezd, avtobus va samolyot qatnovlarini qidiring</span></div>
+      <div class="tickets-grid" id="ticketsList"></div>
+      <p class="empty-state hidden" id="emptyTickets">Mos reys topilmadi. Qidiruv ma'lumotlarini o'zgartirib ko'ring.</p>
+    </section>
+
+    <section class="help-section container" id="help">
+      <div class="section-heading"><div><span class="eyebrow">YORDAM VA MA'LUMOT</span><h2>Safaringiz haqida</h2></div><span class="section-note">Chipta tanlash bo'yicha qisqa yo'riqnoma</span></div>
+      <div class="help-grid">
+        <article class="help-card"><span class="help-number">01</span><h3>Qatnovni tanlang</h3><p>Poyezd, avtobus yoki aviachipta bo'limiga o'tib, yo'nalish va sanani kiriting.</p></article>
+        <article class="help-card"><span class="help-number">02</span><h3>Joyingizni belgilang</h3><p>Reys kartasidagi tugmani bosing va mavjud o'rindiqlardan birini tanlang.</p></article>
+        <article class="help-card"><span class="help-number">03</span><h3>Xavfsiz demo to'lov</h3><p>To'lov oynasi namoyish uchun. Haqiqiy karta yoki pul yechimi ishlatilmaydi.</p></article>
+      </div>
+    </section>
+
+    <section class="booking-section container hidden" id="bookingSection">
+      <div class="section-heading"><div><span class="eyebrow">3D INTERAKTIV SALON</span><h2 id="bookingTitle">O'rindiqni tanlang</h2><p id="bookingTrain"></p></div></div>
+      <div class="booking-layout">
+        <div class="booking-3d-card">
+          <div id="trainModel"></div>
+        </div>
+        <aside class="payment-panel hidden" id="paymentPanel">
+          <span class="eyebrow">XARIDNI YAKUNLASH</span><h3>To'lov</h3><p class="selected-seat-label" id="selectedSeatLabel"></p><p class="payment-summary" id="paymentSummary"></p>
+          <form id="paymentForm"><label>Karta egasi<input type="text" autocomplete="cc-name" required placeholder="Ism Familiya"></label><label>Karta raqami<input id="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" minlength="16" maxlength="19" pattern="[0-9 ]{16,19}" required placeholder="0000 0000 0000 0000"></label><label>Amal qilish muddati<input type="text" inputmode="numeric" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])/[0-9]{2}" required></label><button class="button button-primary pay-button" type="submit">To'lovni amalga oshirish</button></form>
+          <p class="demo-note">Demo to'lov: karta ma'lumotlari saqlanmaydi va haqiqiy pul yechilmaydi.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ticket-footer"><div class="container"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">T</span><span>temiryo'l<small>SAFARINGIZ BIZ BILAN</small></span></a><span>© 2026 Temiryo'l. Yaxshi safar tilaymiz.</span></div></footer>
+  <script src="three.min.js"></script><script src="vehicle3D.js"></script><script src="db.js"></script><script src="script.js"></script>
+  <a class="theme-toggle" href="../kun/index.html" aria-label="Kunduzgi rejimga o'tish" title="Kunduzgi rejimga o'tish">☀</a>
+</body>
+</html>

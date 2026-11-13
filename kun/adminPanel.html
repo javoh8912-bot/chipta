@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Admin panel | Temiryo'l</title><link rel="stylesheet" href="style.css"></head>
+<body class="ticket-app">
+  <header class="ticket-header"><nav class="ticket-nav container"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">T</span><span>temiryo'l<small>BOSHQARUV PANELI</small></span></a><a class="button button-outline" href="index.html">Saytga qaytish</a></nav></header>
+  <main class="admin-page container">
+    <div class="section-heading"><div><span class="eyebrow">ADMINISTRATOR</span><h1>Qatnovlarni boshqarish</h1><p>Poyezd, avtobus va aviaqatnov chiptalarini qo'shing yoki o'chiring.</p></div></div>
+    <section class="admin-card">
+      <h2 id="ticketFormTitle">Yangi chipta qo'shish</h2>
+      <form id="ticketForm" class="admin-form">
+        <label>Transport turi<select id="mode" required><option value="train">Poyezd</option><option value="bus">Avtobus</option><option value="flight">Samolyot</option></select></label>
+        <label>Transport nomi<input id="train" required placeholder="Masalan, Afrosiyob 762Ф"></label>
+        <label>Reys xizmati<select id="type" required><option value="Tezyurar">Tezyurar</option><option value="Kechki">Kechki</option><option value="Yo'lovchi">Yo'lovchi</option></select></label>
+        <label>Qayerdan<input id="from" required placeholder="Toshkent"></label>
+        <label>Qayerga<input id="to" required placeholder="Samarqand"></label>
+        <label>Sana<input id="date" type="date" min="2026-11-09" required></label>
+        <label>Jo'nash vaqti<input id="departure" type="time" required><small>06:00–17:59 — kunduzgi, 18:00–05:59 — tungi 3D muhit</small></label>
+        <label>Yetib borish vaqti<input id="arrival" type="time" required></label>
+        <label>Narxi (so'm)<input id="price" type="number" min="1" step="1" required></label>
+        <button class="button button-primary admin-submit" type="submit" id="ticketSubmit">Reysni saqlash</button>
+        <button class="button button-outline hidden" type="button" id="cancelEdit">Bekor qilish</button>
+      </form>
+    </section>
+    <section class="admin-card">
+      <h2>Mavjud reyslar <span id="ticketCount"></span></h2>
+      <div class="admin-ticket-list" id="adminTicketList"></div>
+    </section>
+  </main>
+  <script src="db.js"></script><script src="admin.js"></script>
+  <a class="theme-toggle" href="../tun/adminPanel.html" aria-label="Tungi rejimga o'tish" title="Tungi rejimga o'tish">☾</a>
+</body>
+</html>
